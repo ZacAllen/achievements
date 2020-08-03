@@ -1,0 +1,82 @@
+<html>
+<head>
+
+    <title><%=title%></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>    
+    <script>
+
+        var achievementsList = '<%- JSON.stringify(achievements) %>';
+        achievementsList = JSON.parse(achievementsList);
+        var activeTime = '<%=activeTime%>';
+        var strongmanMaxROM = '<%=strongmanMaxROM%>';
+        var thermometerMaxROM = '<%=thermometerMaxROM%>';
+        var slotmachineMaxROM = '<%=slotmachineMaxROM%>';
+
+        for (var achievement of achievementsList.achievements) {
+            if (activeTime >= achievement.activeTime || strongmanMaxROM >= achievement.strongmanMaxROM || 
+            thermometerMaxROM >= achievement.thermometerMaxROM || slotmachineMaxROM > achievement.slotmachineMaxROM) {
+                achievement.checked = true;
+            }
+            // console.log(achievement.description)
+        }
+
+        $(function() {
+            $('#achievementTable').bootstrapTable({
+                data: achievementsList.achievements
+            })
+        })
+        
+        console.log(achievementsList);
+
+    </script>
+    <div class="container" id ="main">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Hello, [user]!</h1>
+                <h3>Welcome to your Achievements Page</h3>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-5">
+                <h3>Your most active session was: <span id="activeTime"><%=activeTime%></span></h3>
+                <h3>Your top ROM in Strongman: <span id="strongmanMaxROM"><%=strongmanMaxROM%></span></h3>
+                <h3>Your top ROM in Thermometer: <span id="thermometerMaxROM"><%=thermometerMaxROM%></span></h3>
+                <h3>Your top ROM in Slot Machine: <span id="slotmachineMaxROM"><%=slotmachineMaxROM%></span></h3>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
+                <div class="row">
+                    <h2>Your Achievements</h2>
+                </div>
+                <div class="row">
+                    <table class="table" id="achievementTable">
+                        <thead>
+                            <tr>
+                                <th data-field="thumbnail"></th>
+                                <th data-field="name">Achievement Name</th>
+                                <th data-field="description">Achievement Description</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+
+</html>

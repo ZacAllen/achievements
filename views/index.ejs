@@ -1,0 +1,46 @@
+<html>
+<head>
+
+    <title><%=title%></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+        function getUserData() {
+        var obj = {userURL: 'gala_implode_visibly.txt'}
+        axios.post('http://localhost:3001/users', obj).then(function(response) {
+            if (response.data) { 
+                console.log(response.data);
+                window.location = '/landing'
+                return axios.post('http://localhost:3001/landing', response.data);
+            } else {
+                console.log("bad response")
+            }
+        });;
+    }
+    </script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Welcome to Your Achievements Page</h1>
+                <button class="btn btn-large btn-primary py-5" onclick="getUserData()">View</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

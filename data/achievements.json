@@ -1,0 +1,12 @@
+{
+    "achievements" : [
+        {"name": "First Steps", "description": "Reach 100 minutes of active gameplay.", "thumbnail": "", "activeTime": 100, "checked": false },
+        {"name": "Trainee", "description": "Have a ROM of at least 10° in Strongman", "thumbnail": "", "strongmanMaxROM": 10, "checked": false },
+        {"name": "Weightlifter", "description": "Have a ROM of at least 30° in Strongman", "thumbnail": "", "strongmanMaxROM": 30, "checked": false },
+        {"name": "Strongman!", "description": "Have a ROM of at least 50° in Strongman", "thumbnail": "", "strongmanMaxROM": 50, "checked": false },
+        {"name": "Warming Up", "description": "Have a ROM of at least 10° in Thermometer", "thumbnail": "", "thermometerMaxROM": 10, "checked": false },
+        {"name": "Getting Hot!", "description": "Have a ROM of at least 30° in Thermometer", "thumbnail": "", "thermometerMaxROM": 30, "checked": false },
+        {"name": "Gambler", "description": "Have a ROM of 20° in Slot Machine", "thumbnail": "", "slotmachineMaxROM": 20, "checked": false }
+
+    ]
+}
